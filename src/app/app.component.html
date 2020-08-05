@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+
+  <h2>{{ 'demo.title' | translate }}</h2>
+
+  <h3>Simple translations without parameters</h3>
+
+  <!-- translation: translation pipe -->
+  <h4>Pipe</h4>
+  <p>{{ 'demo.text' | translate }}</p>
+
+  <h4>Directive: key as attribute</h4>
+  <!-- translation: directive (key as attribute)-->
+  <p [translate]="'demo.text'"></p>
+
+  <h4>Directive: key as content</h4>
+  <!-- translation: directive (key as content of element) -->
+  <p translate>demo.text</p>
+
+
+  <h3>Translations with parameters</h3>
+
+  <h4>Pipe</h4>
+  <!-- translation: translation pipe -->
+  <p>{{ 'demo.greeting' | translate:{'name':'World'} }}</p>
+
+  <h4>Directive: key as attribute</h4>
+  <!-- translation: directive (key as attribute) -->
+  <p [translate]="'demo.greeting'" [translateParams]="{name: 'World'}"></p>
+
+  <h4>Directive: key as content</h4>
+  <!-- translation: directive (key as content of element)-->
+  <p translate [translateParams]="{name: 'World'}">demo.greeting</p>
+
+  <h3>Translation IDs from code</h3>
+
+  <p>{{ fromCode | translate }}</p>
+
+
+  <!-- translation: translation Babel Edit -->
+  <h4>Translation using HTML tags</h4>
+  <p [innerHTML]="'demo.html-in-code' | translate"></p>
+
+  <!-- translation: Missing Translation Value -->
+  <h4>Translation containing missing keys</h4>
+  <p>{{ 'demo.missing' | translate }}</p>
+
+  <!-- translation: Missing Translation Value -->
+  <h4>Test translation extract</h4>
+  <p>{{ 'demo.test-extract' | translate }}</p>
+
+  <h3>Switching languages at runtime</h3>
+
+  <button (click)="useLanguage('en')">en</button>
+  <button (click)="useLanguage('de')">de</button>
+
+</div>
+
+<router-outlet></router-outlet>
